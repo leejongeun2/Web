@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+* {box-sizing: border-box;}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  min-width: 1280px;
+  color: #333333;
+}
+
+.logo:hover {
+color: red;
+}
+
+.logo {
+  text-decoration-line: none;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  align-items: center;
+  border-bottom: 1px solid grey;
+  background-color: white;
+  position: sticky;
+  top: 0px; 
+
+}
+
+.nav-list {
+  display: flex;
+  
+}
+
+.nav-item {
+  margin: 0 .5rem;
+}
+
+/* .banner {
+  
+  
+} */
+
+.banner-img {
+  background: url("../assets/apparel.jpeg") no-repeat;
+  background-position: top; /*위에서부터 보여줘*/
+  width: 100%; /*최대폭*/
+  height: 700px;
+}
+
+.main, .more, .icon {
+  display: flex;
+  justify-content: space-evenly;
+  width: 1280px;
+  margin: 30px auto;
+}
+
+.about, .more {
+  margin: 0 10px
+}
+
+.about {
+  width: 500px;
+  
+}
+
+.about-img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 780px;
+  padding: 0 30px;
+}
+
+.about-title {
+  font-size: 1.4rem;
+  text-align: center;
+  margin: 1rem;
+  margin-top: 0;
+}
+
+.about-text {
+  line-height: 25px;
+  text-align: left;
+}
+
+.more{
+  margin: 50px auto 30px;
+  display: flex;
+}
+
+.more-title{
+  font-size: 1.4rem;
+  display: block;
+}
+
+.info_list {
+  display:flex;
+  justify-content: space-evenly;
+  width: 1280px;
+  margin: 10px auto;
+  text-align: center;
+  line-height: 30px;
+}
+
+.icons {
+  margin: 10px 0;
+}
+
+.more_img {
+  width: 64px;
+  height: 64px;
+}
+
+.top-btn {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.btn-img {
+  width: 2rem;
+}

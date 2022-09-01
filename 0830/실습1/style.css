@@ -16,7 +16,7 @@
 
 .card{
     width: 300px;
-    display: inline-block;
+    display: inline-block; /*카드를 한줄로 하고 싶을떄*/
     margin: 10px;
     
 }
