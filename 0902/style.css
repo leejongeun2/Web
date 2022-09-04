@@ -1,7 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
 * {
   box-sizing: border-box;
 }
+
+body {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  min-width: 1280px;
+  color: #333333;
+  object-fit: cover;
+}
+
+.title {
+  height: 300px;
+  margin: 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 section {
   background-color: lightgray;
@@ -14,13 +33,7 @@ img {
   border-radius: 8px;
 }
 
-body {
-  margin: 0;
-  font-family: 'Noto Sans KR', sans-serif;
-  min-width: 1280px;
-  color: #333333;
-  object-fit: cover;
-}
+
 
 aside {
   width: 240px;
@@ -68,7 +81,7 @@ footer {
   align-items: center;
 }
 
-.title-ment {
+.title1 {
   font-size: 30px;
   font-weight: bold;
 }
