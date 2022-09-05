@@ -1,5 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
 * {
   box-sizing: border-box;
 }
 
+header {
+  height: 80px;
+  padding: 40px;
+}
+
+.logo-img {
+height: 60px;  
+}
+
+/* .logo-list {
+  list-style: none;
+} */
+
+/* .logo-item {
+  height: 1.5rem;
+} */
+
+a {
+  text-decoration: none;
+}
+
+section {
+  height: 320px;
+  margin-top: 80px;
+
+}
+
+.back-img {
+  background: url(./images/background.jpg);
+  height: 400px;
+}
+
+aside {
+  padding: 1rem;
+  flex-grow: 2;
+}
+
+.genre {
+  padding: 0;
+}
+
+.movie-ra {
+  padding: 24px;
+  flex-grow: 8;
+
+}
+
+.card-img {
+width: 300px;
+}
+
+.foobo {
+  height: 40px;
+  background-color: black;
+  color: white;
+}
