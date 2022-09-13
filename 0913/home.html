@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Home</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container-fluid">
+                <div class="px-3">
+                    <img src="./images (2)/logo.png" alt="movie logo" style="width: 7rem;">
+                </div>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                  <a class="nav-link" href="community.html">Connunity</a>
+                <button type="button" class="btn text-white-50" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Login
+                </button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content fw-light">
+                        <div class="modal-header">
+                        <h5 class="modal-title fw-light" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                  <label for="exampleInputEmail1 " class="form-label">Email address</label>
+                                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                </div>
+                                <div class="mb-3">
+                                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                                  <input type="password" class="form-control" id="exampleInputPassword1">
+                                </div>
+                                <div class="mb-3 form-check">
+                                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                </div>
+                              </form>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary fw-light" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary fw-light">Submit</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+    </header>
+    <main>
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://via.placeholder.com/1920X600" class="d-block w-100" alt="placeholder">
+              </div>
+              <div class="carousel-item">
+                <img src="https://picsum.photos/1920/600" class="d-block w-100" alt="random image">
+              </div>
+              <div class="carousel-item">
+                <img src="https://picsum.photos/1920/600" class="d-block w-100" alt="random image">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        <section>
+            <div class="text-center my-5">
+                <h2>Boxoffice</h2>
+            </div>
+            <div class="container">
+                <div class="row gx-3 mb-5">
+                  <div class="col-sm-6 col-12 col-md-4 ">
+                    <img src="./images (2)/movie1.jpg" alt="1" class="img-fluid">
+                  </div>
+                  <div class="col-sm-6 col-12 col-md-4">
+                    <img src="./images (2)/movie2.jpg" alt="2" class="img-fluid">
+                  </div>
+                  <div class="col-sm-6 col-12 col-md-4">
+                    <img src="./images (2)/movie3.jpg" alt="3" class="img-fluid">
+                  </div>
+                </div>
+                <div class="row gx-3">
+                    <div class="col-sm-6 col-12 col-md-4">
+                      <img src="./images (2)/movie4.jpg" alt="4" class="img-fluid">
+                    </div>
+                    <div class="col-sm-6 col-12 col-md-4">
+                      <img src="./images (2)/movie5.jpg" alt="5" class="img-fluid">
+                    </div>
+                    <div class="col-sm-6 col-12 col-md-4">
+                      <img src="./images (2)/movie6.jpg" alt="6" class="img-fluid">
+                    </div>
+                  </div>
+                
+            </div>
+            
+        </section>
+    </main>
+
+    <footer>
+        <div class="text-center py-3 text-black-50 fs-6">
+            <p class="my-0">Web-bootstrap PJT, by 오채현, 이종은</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
