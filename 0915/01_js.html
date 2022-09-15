@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+        console.log('hello, js!') // 개발자 도구 > 콘솔에서 로그 작성할 수 있도록
+        const title = document.createElement('h1') // title에 h1요소를 만들고
+        title.innerText = 'js기초' // title속성에 해당 텍스트 문구를 추가하고
+        const body = document.querySelector('body') //선택자로 body태그를 가져와서 
+        body.appendChild(title) //바디 태그의 자식요소로 추가
+    </script>
+</body>
+</html>
