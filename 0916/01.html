@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let foo // 선언
+        console.log(foo) // undefined
+
+
+        foo = 11 //할당
+        console.log(foo) //11
+
+        let bar = 0 //선언 + 할당
+        console.log(bar) // 0
+
+        let number = 10 // 1. 선언 + 초기 할당, number로 재선언 불가능
+        number = 10 // 2. 재할당
+        console.log(number)
+
+
+        let number1 = 9
+        console.log(number1)
+
+        number1 = 8
+        console.log(number1)
+
+        const number2 = 7 // 선언 + 초기할당, number2로 재선언 불가능
+        console.log(number2)
+
+        // number2 = 6 //const 재할당 불가능
+        // console.log(number) //01.html:33 Uncaught TypeError: Assignment to constant variable. at 01.html:33:17
+
+        let x = 1
+        console.log(x)
+        if (x === 1) {
+            let x = 2
+            console.log(x) 
+        } // if문의 블록이 x=2는 블록 밖에서 접근 불가하기 때문에 2 출력
+
+
+
+
+
+    </script>
+</body>
+</html>
