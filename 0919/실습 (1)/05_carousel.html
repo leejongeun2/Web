@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .carousel-items {
+      position: relative;
+      display: flex;
+      width: 10rem;
+      height: 10rem;
+      overflow: hidden;
+    }
+    .carousel-item {
+      position: absolute;
+      top: 0;
+      width: 10rem;
+      height: 10rem;
+      background-color: bisque;
+      display: none; /*숨겨놓고*/
+    }
+    .active {
+      display: block; /*첫번째꺼는 해당 클래스 추가해서 보이고 나머지들은 위의 클래스를 써서 숨겨놓기*/
+      animation: active 1.5s;
+    }
+
+    /*오른쪽에소 왼쪽으로 가려면? 커스텀, 0%에서는 100->0까지 가는.. 넥스트 누를때마다 넘어감 */
+    @keyframes active {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="carousel-items">
+      <div class="carousel-item active">1</div>
+      <div class="carousel-item">2</div>
+      <div class="carousel-item">3</div>
+      <div class="carousel-item">4</div>
+    </div>
+  </div>
+    <button id="prevBtn">prev</button>
+    <button id="nextBtn">next</button>
+  <script>
+    const prevBtn = document.querySelector('#prevBtn')
+    prevBtn.addEventListener('click', function() {
+      // 지금 active인 것은 어떻게 알죠?
+      const currentElement = document.querySelector('.active')
+      // 전체 item 중에....... 이 Element의 인덱스?
+      const items = document.querySelectorAll('.carousel-item')
+      const idx = [...items].indexOf(currentElement)
+      console.log(currentElement, items, idx)
+      currentElement.classList.toggle('active')
+      items[(items.length+idx-1)%items.length].classList.toggle('active')
+    })
+
+    const nextBtn = document.querySelector('#nextBtn') //넥스트 버튼 아이디 가져오고 
+    nextBtn.addEventListener('click', function() { //클릭하면 아래 함수 실행될수있도록
+      // 지금 active인 것은 어떻게 알죠? ,,,,케러셀은 누르면 1이 없어지고 2가 액티브, 인덱스 값을 알아야 됨
+      const currentElement = document.querySelector('.active') // 클래스가 액티브인거 가져오기
+      // 전체 item 중에....... 이 Element의 인덱스는?
+      const items = document.querySelectorAll('.carousel-item') //클래스가 캐러셀 아이템인거 다 가져오기
+      const idx = [...items].indexOf(currentElement) //인덱스 값을 얻어낼 수 있음
+      console.log(currentElement, items, idx) //액티브 된 현재요소, 케러셀 아이템인 요소, 인덱스값
+      currentElement.classList.toggle('active') // 액티된 현재 요소를 액티브 클래스 토글해줌
+      items[(idx+1)%items.length].classList.toggle('active') //아이템즈에서 인덱스 +1인애 액티브 클래스 토글해줌 + 
+    }) //단, 4에서 다시 1로 갈려면? => 길이를 나눠줌, 그러면 나머지 0나와서 처음부터 다시 돌아감
+    
+
+
+    setInterval(function() {
+        const nextBtn = document.querySelector('#nextBtn')
+        nextBtn.click()
+      }, 10000)
+
+    document.addEventListener('load', function() {
+
+    })
+  </script>
+</body>
+</html>

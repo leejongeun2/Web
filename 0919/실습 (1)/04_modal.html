@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .modal-overlay {
+      /* position은 전체 화면 기준*/
+      position: fixed;
+      top: 0;
+      left: 0;
+      /* 배경색, 너비, 높이 */
+      background-color: rgba(0, 0, 0, 0.8); /*a는 투명도*/
+      width: 100%;
+      height: 100vh;
+      /* 내부 내용 */
+      color: white;
+      justify-content: center;
+      align-items: center;
+      /* 기본은 안보이게 */
+      display: none;
+    }
+
+    .active {
+      display: flex; /*플렉스 껐다, 켜졌다를 스크립트에 토글로 작성*/
+    }
+  </style>
+</head>
+<body>
+  <button id="modal-btn">모달 버튼</button>
+  <div id="modal-content" class="modal-overlay">모달
+    <button id="modal-cancel-btn">취소 버튼</button>
+  </div>
+
+  <script>
+    // 모달 버튼이 클릭되면
+    const modalToggle = function() {
+      document.querySelector('#modal-content').classList.toggle('active') // 클래스가 액티브로 바뀌는 모달 토글이라는 함수 만듦(정의))
+    }
+    
+    const modalBtn = document.querySelector('#modal-btn') //모달 버튼 가져오고
+    modalBtn.addEventListener('click', modalToggle) //모달 버튼 클릭되면 위에 만든 모달토글 함수 실행
+
+    // 모달 취소 버튼이 클릭되면 
+    const modalCancelBtn = document.querySelector('#modal-cancel-btn')
+    modalCancelBtn.addEventListener('click', modalToggle) //모달 토글함수가져왔는데, 모달토글 함수는 액티브가 켜져있으면 꺼주는 함수
+
+    // 모달 오버레이를 클릭하면
+    const modalOverlay = document.querySelector('#modal-content') //모달 컨텐츠(배경컨텐츠) 가져와서
+    modalOverlay.addEventListener('click', modalToggle) //클릭이벤트 추가하고, 액티브 토글 함수 만들어둔거 추가 
+
+  </script>
+</body>
+</html>

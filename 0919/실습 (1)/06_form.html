@@ -1,0 +1,80 @@
+<!-- - 비밀번호 및 비밀번호 일치 여부 확인하기
+    - 조건
+        - 비밀번호는 8자리 이상이어야 합니다.
+        - 비밀번호는 비밀번호와 비밀번호 확인 값이 일치해야 합니다.
+        
+    - 일치하지 않는 경우 `alert` 를 통해 메시지를 전달합니다. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form id="form" action="url...">
+    <fieldset> <!--해당 태그는 관련 된 입력 양식들을 보기쉽게 그룹화할 때 사용-->
+      <legend>비밀번호(8자 이상 입력하세요</legend><!--필드셋으로 나누어진 구역에 제목을 붙일 때 사용-->
+      <input type="password" name="password" id="password">
+      <input type="password" name="password_confirmation" id="password_confirmation">
+      <button type="submit">제출</button>
+    </fieldset>
+    
+  </form>
+
+  <script>
+
+    const password = document.querySelector("#password")
+    const password_confirm = document.querySelector("#password_confirmation")
+
+    function validatePassword() {
+      if(password.value != password_confirm.value) {
+        password_confirm.setCustomValidity("일치하지 않습니다") //seccustomvalidity는 유효성 메세지 표시됨
+      }
+      else if (password.value.length<8) {
+        password_confirm.setCustomValidity("비밀번호 8자리 이상이어야함")
+      }
+      else {
+        password_confirm.setCustomValidity("")
+      }
+
+    }
+
+    password.onchange = validatePassword //onchange는 내용이 변경되었을 때 감지
+    password_confirm.onkeyup = validatePassword // 값을 입력할때마다(키보드에서 손을 땐 후) 이벤트를 발생
+
+    // const form = document.querySelector('#form')
+    
+    // form.addEventListener('submit', function(event) {
+    //   event.preventDefault() //이벤트야, 원래 하던거 하지마
+    //   console.log('hi!') // hi안뜸 이유는? => 폼은 제출 버튼을 누르면 다른 곳으로 보내는 역할을 함//
+   
+    //   const formData = new FormData(form)  //formdata라는 객체는 위의 form요소를 데이터로써 가져온 것
+    //   console.log(formData) // 볼수없음, 파이썬의 맵과 같이 주소가 적혀져있기 때문에, for of 통해 반복을 해야함
+    //   console.log(formData.get('password'))
+    //   console.log(formData.get('password_confirmation')) //name 기준으로 가져오는 것 왜? 인풋을 받아와서, 네임과 밸류를 쌍으로가져오는 것이기 때문
+      
+    //   if (formData.get('password').value != formData.get('password_confirmation').value) {
+    //     formData.get('password_confirmation').setCustomValidity("비밀번호가 일치하지 않습니다")
+    //   }
+    //   else {
+    //     formData.get('password_confirmation').setCustomValidity('')
+    //   }
+
+    //   if(formData.get('password').length<8) {
+    //     formData.get('password_confirmation').setCustomValidity("비밀번호를 8자이상 입력하시오")
+    //   }
+
+    // }) 
+
+    // password.onchange = validatePassword
+    // password_confirmation.onkeyup = validatePassword
+    //제출될 때(submit) 이벤트가 있음
+    //폼의 핵심은 인풋을 받아서 네임과 밸류를 쌍으로 하여 액션을 보냄
+
+
+  </script>
+</body>
+</html>

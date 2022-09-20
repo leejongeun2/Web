@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="text-input"/>
+  <h1 id="result"></h1>
+
+
+  <script>
+    // 1. input 선택
+    const textInput = document.querySelector('#text-input')
+    // 2. input 이벤트 등록
+    textInput.addEventListener('input', function(e) {
+      const name = document.getElementById('text-input').value; // get~ 함수는 구성 된 요소를 아이디값으로 찾아가는 함수(text-input아이디로 찾음), 찾아온 요소의 밸류값을 읽어와서 name에 저장
+      document.getElementById("result").innerText = name; // result 아이디값으로 찾아와서 name변수를 넣어줌
+      // input의 value를 받아오고 싶음
+      // input은 이벤트의 대상!
+      console.log(e)
+      // console.log(e.target.value)
+
+      // 3. 그대로 출력하기
+    })
+
+    // function printName()  {
+    // const name = document.getElementById('text-input').value; //get~ 함수는 구성 된 요소를 아이디값으로 찾아가는 함수
+    // document.getElementById("result").innerText = name;
+    // }
+
+  </script>
+</body>
+</html>
