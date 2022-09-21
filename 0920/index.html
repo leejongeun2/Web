@@ -1,0 +1,148 @@
+<!--- 버튼을 눌렀을 때 번호 6개를 추천하는 코드를 작성합니다.
+- 라이브 수업에서 진행된 코드를 참고하여 완성 시키세요.
+
+### 추가 기능
+
+- 숫자별로 적절한 색상을 활용합니다.   
+- 사용자에게 정보를 받아 주어진 수량의 번호를 한번에 제공합니다.
+- GitHub Pages 기능을 활용하여 배포합니다.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lotto</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <style>
+        .ball {
+            width: 10rem;
+            height: 10rem;
+            margin: .5rem;
+            background-color: yellow;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 10rem; /*line-height란 블록요소일 경우, 높이와 같은 값으로 설정 시 수직 중앙 정렬 됨*/
+            font-size:xx-large;
+            font-weight: bold;
+
+        }
+
+        .ball-container {
+            display: flex;
+        }
+
+        
+        
+    </style>
+</head>
+<body>
+    <h1 class="text-center">로또 추천 번호</h1>
+    <div class="text-center">
+        <button id="lotto-btn" class="btn btn-danger btn-lg">행운 번호 받기</button>
+        <button id="lotto-cnt" class="btn btn-danger btn-lg">한꺼번에 받기</button>
+    </div>
+    
+    
+    
+    <hr>
+    <div id="result"></div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    
+
+    <script>
+        const button = document.querySelector('#lotto-btn')
+        button.addEventListener('click', function() {
+
+            //볼컨테이너를 만들고 그거에 볼컨테이너 클래스를 준다. 
+            const ballcontainer = document.createElement('div')
+            ballcontainer.classList.add('ball-container')
+
+            //공을 만들어서 => 6개 만들어서
+            const numbers = _.sampleSize(_.range(1, 46), 6)
+            console.log(numbers)
+
+            //로또 공 만들고 번호 삽입
+            for (let i = 0; i<numbers.length; i++){ // for문임 배열이 6개이니까 i로 순회했을 때 i가6보다 작으면 i숫자 증가
+                const ball = document.createElement('div') // 볼 요소를 디브로 만들고 
+                ball.classList.add('ball') //볼 요소에 클래스를 볼로 주고 
+                ball.innerText = numbers[i] //볼 요소에 i를 텍스트로 넣고 
+                ballcontainer.appendChild(ball) //볼 요소를 볼컨테이너fmf 볼컨테이너에 자식 요소로 준다
+
+                
+
+                if (numbers[i] < 11) {
+                    ball.style.backgroundColor = 'yellow'
+                }   else if (numbers[i] < 21) {
+                    ball.style.backgroundColor = 'blue'
+                }   else if (numbers[i] < 31) {
+                    ball.style.backgroundColor = 'red'
+                }   else if (numbers[i] < 41) {
+                    ball.style.backgroundColor = 'grey'
+                }   else {
+                    ball.style.backgroundColor = 'green'
+                }       
+            }
+            //컨테이너를 결과 영역에 붙인다. 
+            const result = document.querySelector('#result')
+            result.appendChild(ballcontainer)
+
+
+
+
+            
+           
+            // ball.style.backgroundColor = 'green'
+            // //컨테이너에 붙인다. 
+            // ballcontainer.appendChild(ball)
+            // //컨테이너를 결과 영역에 붙인다. 
+            // const result = document.querySelector('#result')
+            // result.appendChild(ballcontainer)
+            
+            
+
+        })
+
+        const lottoCnt = document.querySelector('#lotto-cnt')
+        lottoCnt.addEventListener('click', function() {
+            const cnt = prompt('몇개 필요하신가요?', 1) //사용자가 텍스트를 입력할 수 있도록 안내하는 선택적 메세지를 갖고 있는 대화상자를 띄움(괄호 안 숫자는 기본 셋팅 값)
+            for (let i=0; i < cnt; i++){ // cnt는 입력 숫자이므로, cnt보다 작을때까지 두번반복
+                const ballcontainer = document.createElement('div') // 빈 디브로 만듦
+                ballcontainer.classList.add('ball-container') // 거기에 클래스 넣음
+                console.log(i) 
+                const number = _.sampleSize(_.range(1,46),6) // 6개를 뽑아야 됨, 샘플이 리스트로 나옴
+                console.log(number)
+
+                for(num of number) { //총 6번
+                    const ball = document.createElement('div') // 볼 디브 만들고
+                    ball.classList.add('ball') // 거기에 클래스 볼 주고
+                    ball.innerText = num // 첫번째 볼에 첫번째 num이 들어감
+                    if (num < 11) {
+                        ball.style.backgroundColor = 'yellow'
+                    }   else if (num < 21) {
+                        ball.style.backgroundColor = 'blue'
+                    }   else if (num < 31) {
+                        ball.style.backgroundColor = 'red'
+                    }   else if (num < 41) {
+                        ball.style.backgroundColor = 'grey'
+                    }   else {
+                        ball.style.backgroundColor = 'green'
+                    }
+                    ballcontainer.appendChild(ball) // 빈 디브(빈리스트)에 공을 한개씩 넣어라!
+
+                }
+                const result = document.querySelector('#result') // 6개 꽉 찬 리스트를 result에 추가, 그런 줄이 2개 추가
+                result.appendChild(ballcontainer)
+                
+            }
+        })
+
+    </script>
+</body>
+</html>
